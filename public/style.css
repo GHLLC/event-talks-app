@@ -160,11 +160,27 @@ h1 {
     background-color: rgba(255,255,255,0.05);
     border-radius: 4px;
     color: var(--text-secondary);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.category-tag:hover {
+    background-color: rgba(255,255,255,0.15);
+    color: white;
 }
 
 .highlighted .category-tag.match {
     background-color: var(--accent);
     color: var(--bg-color);
+}
+
+.speaker-name {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.speaker-name:hover {
+    color: var(--accent);
 }
 
 .speaker-name.match {

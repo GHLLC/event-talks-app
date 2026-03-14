@@ -149,5 +149,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', applyHighlighting);
 
+    scheduleContainer.addEventListener('click', (e) => {
+        const tag = e.target.closest('.category-tag');
+        const speaker = e.target.closest('.speaker-name');
+        
+        if (tag) {
+            searchInput.value = tag.getAttribute('data-category');
+            applyHighlighting();
+            searchInput.focus();
+        } else if (speaker) {
+            searchInput.value = speaker.getAttribute('data-speaker');
+            applyHighlighting();
+            searchInput.focus();
+        }
+    });
+
     fetchTalks();
 });
