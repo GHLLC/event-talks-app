@@ -167,6 +167,11 @@ h1 {
     color: var(--bg-color);
 }
 
+.speaker-name.match {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
 .talk-title {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;

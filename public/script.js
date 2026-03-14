@@ -62,8 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(cat => `<span class="category-tag" data-category="${cat.toLowerCase()}">${cat}</span>`)
             .join('');
 
+        const speakersHtml = talk.speakers
+            .map(s => `<span class="speaker-name" data-speaker="${s.toLowerCase()}">${s}</span>`)
+            .join(' & ');
+
         return `
-            <div class="schedule-item talk-card" id="talk-${talk.id}" data-categories="${talk.categories.join(',').toLowerCase()}">
+            <div class="schedule-item talk-card" id="talk-${talk.id}" 
+                 data-categories="${talk.categories.join(',').toLowerCase()}"
+                 data-speakers="${talk.speakers.join(',').toLowerCase()}">
                 <div class="time-slot">
                     <span class="time-start">${start}</span>
                     <span class="time-end">${end}</span>
@@ -71,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="content">
                     <div class="categories">${categoriesHtml}</div>
                     <h2 class="talk-title">${talk.title}</h2>
-                    <p class="speakers">${talk.speakers.join(' & ')}</p>
+                    <p class="speakers">${speakersHtml}</p>
                     <p class="description">${talk.description}</p>
                 </div>
             </div>
@@ -99,26 +105,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
         talkCards.forEach(card => {
             const categories = card.getAttribute('data-categories');
-            const tags = card.querySelectorAll('.category-tag');
+            const speakers = card.getAttribute('data-speakers');
+            const catTags = card.querySelectorAll('.category-tag');
+            const speakerSpans = card.querySelectorAll('.speaker-name');
             
             if (query === '') {
                 card.classList.remove('highlighted');
-                tags.forEach(tag => tag.classList.remove('match'));
+                catTags.forEach(tag => tag.classList.remove('match'));
+                speakerSpans.forEach(s => s.classList.remove('match'));
                 return;
             }
 
-            if (categories.includes(query)) {
+            const catMatch = categories.includes(query);
+            const speakerMatch = speakers.includes(query);
+
+            if (catMatch || speakerMatch) {
                 card.classList.add('highlighted');
-                tags.forEach(tag => {
+                
+                // Highlight Category Tags
+                catTags.forEach(tag => {
                     if (tag.getAttribute('data-category').includes(query)) {
                         tag.classList.add('match');
                     } else {
                         tag.classList.remove('match');
                     }
                 });
+
+                // Highlight Speaker Names
+                speakerSpans.forEach(s => {
+                    if (s.getAttribute('data-speaker').includes(query)) {
+                        s.classList.add('match');
+                    } else {
+                        s.classList.remove('match');
+                    }
+                });
             } else {
                 card.classList.remove('highlighted');
-                tags.forEach(tag => tag.classList.remove('match'));
+                catTags.forEach(tag => tag.classList.remove('match'));
+                speakerSpans.forEach(s => s.classList.remove('match'));
             }
         });
     }
