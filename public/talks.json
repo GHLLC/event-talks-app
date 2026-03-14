@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Scaling Distributed Systems with Rust",
+    "speakers": ["Sarah Chen"],
+    "categories": ["Backend", "Performance", "Rust"],
+    "description": "An in-depth look at how Sarah's team migrated core services to Rust to achieve 10x performance gains while maintaining memory safety in a high-concurrency environment."
+  },
+  {
+    "id": 2,
+    "title": "AI-Driven UX: Beyond Chatbots",
+    "speakers": ["Marcus Thorne", "Elena Rodriguez"],
+    "categories": ["AI", "Design", "UX"],
+    "description": "Exploring generative design patterns and predictive interfaces that adapt to user behavior without relying on traditional conversational UI."
+  },
+  {
+    "id": 3,
+    "title": "The Future of WebAssembly in the Browser",
+    "speakers": ["Dr. James Wilson"],
+    "categories": ["Web", "Wasm"],
+    "description": "A deep dive into upcoming Wasm proposals like GC and Threads, and how they will redefine what's possible for web applications in the next decade."
+  },
+  {
+    "id": 4,
+    "title": "Zero-Trust Security for Modern Startups",
+    "speakers": ["Anya Volkov"],
+    "categories": ["Security", "Cloud"],
+    "description": "Why traditional perimeter security is dead. Anya shares a practical roadmap for implementing identity-aware proxying and micro-segmentation from day one."
+  },
+  {
+    "id": 5,
+    "title": "Green Computing: Sustainable Software Engineering",
+    "speakers": ["David Miller"],
+    "categories": ["Ethics", "Cloud", "Sustainability"],
+    "description": "Measuring the carbon footprint of your code. This talk provides actionable strategies for reducing energy consumption in data centers through efficient algorithms."
+  },
+  {
+    "id": 6,
+    "title": "Mastering the Edge: Edge Computing at Scale",
+    "speakers": ["Lin Zhao", "Kevin Park"],
+    "categories": ["Edge", "Infrastructure"],
+    "description": "Deploying logic closer to users. Lin and Kevin discuss the challenges of state synchronization and global consistency in highly distributed edge networks."
+  }
+]
